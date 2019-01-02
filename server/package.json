@@ -1,0 +1,10 @@
+{
+    "name": "chat-app",
+    "version": "0.0.1",
+    "description": "chat application",
+    "dependencies": {
+        "express": "^4.16.4",
+        "mongoose": "^5.4.1",
+        "socket.io": "^2.2.0"
+    }
+}
