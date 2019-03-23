@@ -1,6 +1,10 @@
 var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
+//var http = require('http').Server(app);
+const server = app.listen(5000, () => {
+    console.log(`App running on port 5000`)
+});
+
+var io = require('socket.io')(server);
 
 app.get('/', (req, res) => {
     res.send('<h1>Hello World</h1>');
@@ -13,6 +17,3 @@ io.on('connection', client => {
     })
 });
 
-http.listen(5000, function() {
-    console.log('listening on 5000');
-});
