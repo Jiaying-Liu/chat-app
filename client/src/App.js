@@ -23,13 +23,13 @@ class App extends Component {
     }
   }
 
-  onMsgInputChange = e => {
+  onMsgInputChange (e) {
     this.setState({
       msg: e.target.value
     });
   }
 
-  enterBind = e => {
+  enterBind (e) {
     const code = e.keyCode || e.which;
     
     if(code === 13) {
@@ -37,7 +37,7 @@ class App extends Component {
     }
   }
 
-  sendMsg = () => {
+  sendMsg () {
     this.socket.emit('chat message', this.state.msg);
   }
 
@@ -57,9 +57,9 @@ class App extends Component {
         {this.renderMessages()}
         <input
           value={this.state.msg}
-          onChange={this.onMsgInputChange}
-          onKeyPress={this.enterBind} />
-        <button onClick={this.sendMsg}>
+          onChange={this.onMsgInputChange.bind(this)}
+          onKeyPress={this.enterBind.bind(this)} />
+        <button onClick={this.sendMsg.bind(this)}>
           Enter
         </button>
       </div>
